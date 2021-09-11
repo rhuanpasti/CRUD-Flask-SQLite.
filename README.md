@@ -1,2 +1,2 @@
 # Estagio
-Projeto para o presso seletivo do estágio Flask e SQLite.
+Projeto para o processo seletivo do estágio Flask e SQLite.
