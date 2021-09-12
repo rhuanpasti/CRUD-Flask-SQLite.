@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head></head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body> 
+    <div class="container">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-8"><h2>Adicionar Livro</b></h2></div>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-bordered" style="text-align:center;font-size:20px;">
+                <thead>
+                    <tr><td>
+                    <form action="{{ url_for('adicionar') }}" method="post">
+                        Titulo: <input type="text" name="titulo" required></br></br>
+                        Ano: <input type="number" name="ano" required></br></br>
+                        Autor: <input type="text" name="autor" required></br></br>
+                        Editora: <input type="text" name="editora" required></br></br>
+                        <a class="Voltar" href="{{ url_for('main') }}" title="Voltar"><button type="button" class="btn btn-lg btn-warning"><i action="{{ url_for('main') }}"></i> Voltar </button></a>
+                        <input type="submit" name="submit" value="adicionar" class="btn btn-lg btn-primary"> 
+                        <br>
+                    </form>
+                    <td></tr>
+                </thead>    
+                </tbody>
+            </body>
+</html>
