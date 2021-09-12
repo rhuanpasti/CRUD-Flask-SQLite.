@@ -14,10 +14,10 @@ def db_inserir(titulo,ano,autor,editora):
     return meusite.py
 
 
-def db_editar(titulo, ano, autor, editora):
+def db_editar(id, titulo, ano, autor, editora):
     return """
-    UPDATE livros SET ano = '{}', autor ='{}', editora ='{}' WHERE titulo ='{}'
-    """.format(ano, autor, editora, titulo)
+    UPDATE livros  SET ano = '{}', autor ='{}', editora ='{}', titulo ='{}' WHERE id='{}'
+    """.format(ano, autor, editora, titulo, id)
     return meusite.py
 
 def db_deletar(id):
@@ -43,11 +43,19 @@ def main():
 def pagcadastro():
     return render_template('pag.html')
     
-@app.route("/<int:id>/<string:titulo>/<string:ano>/<string:autor>/<string:editora>/pageditar")
-def editar(id,titulo, ano, autor, editora):
+@app.route('/editar', methods = ['GET','POST'])
+def editar():
     con = sqlite3.connect('books.db')
     cur = con.cursor()
-    cur.execute(db_editar('aaa','123','aaa', 'aaa'))
+
+    id = request.form.get('id')
+    titulo = request.form.get("titulo")
+    ano = request.form.get("ano")
+    autor = request.form.get("autor")
+    editora = request.form.get("editora")
+
+    cur.execute(db_editar(id ,titulo, ano, autor, editora))
+
     con.commit()
     return main()
 
@@ -63,7 +71,6 @@ def excluir(id):
     cur.execute(db_deletar(id))
     con.commit()
     return main()
- 
 
 @app.route("/pag", methods = ["POST"])
 def adicionar():
@@ -87,7 +94,8 @@ def conectarDB():
     cur = con.cursor()
     con.row_factory = sqlite3.Row
     return con
-   
+
+
 
 
 

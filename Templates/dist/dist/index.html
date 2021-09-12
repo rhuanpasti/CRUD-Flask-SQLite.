@@ -38,8 +38,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                    
+
+                    </div>
                     {% block content %}
                     {% for livros in livros %}
+
+                    
                     <tr>
                         <td>{{livros ['id']}}</td>
                         <td>{{livros ['titulo']}}</td>
@@ -47,10 +52,23 @@
                         <td>{{livros ['autor']}}</td>
                         <td>{{livros ['editora']}}</td>
                         <td>
-                            <a class="edit" href="{{ url_for('editar') }}" title="Editar" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <a class="edit" title="Editar" data-toggle="tooltip"  href="{{ url_for('editar', id = livros['id']) }}"> <i class="material-icons">&#xE254;</i></a>
                             <a class="delete" href="{{ url_for('excluir', id = livros['id']) }}" title="Deletar" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                         </td>
-                    </tr>
+
+                        <form action="{{ url_for('editar', id = livros['id']) }}"  method="post">
+                        <tr>
+                            <td>{{livros ['id']}}</td>
+                            <td><input type="text" name="titulo" required></td>
+                            <td><input type="number" name="ano" required></td>
+                            <td><input type="text" name="autor" required></td>
+                            <td><input type="text" name="editora" required></td>
+                            <td>
+                                <input type="submit" name="submit" value="editar"> 
+                                <a class="delete" href="{{ url_for('excluir', id = livros['id']) }}" title="Deletar" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                            </td>
+                        </form>
+                        </tr>
                     {% endfor %}
                     {% endblock %}
                 </tbody>

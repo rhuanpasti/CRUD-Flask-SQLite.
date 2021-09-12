@@ -1,2 +1,2 @@
-# Estagio
-Projeto para o processo seletivo do estágio Flask e SQLite.
+# Est-gio
+Projeto para o processo seletivo do estágio, infelizmente não conseguir completar.
